@@ -1,0 +1,42 @@
+{% unless template == 'index' or template == 'cart' %}
+<div class="breadcrumbs">
+  <div class="container">
+    <p>
+      <a href="/" class="homepage-link" title="Back to the frontpage">Home</a>
+      {% if template contains 'product' %}
+        {% if collection %}            
+          <span class="separator">&rsaquo;</span> 
+          {% if collection.handle %}
+             {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+             {{ collection.title | link_to: url }}
+          {% endif %}
+        {% endif %}
+        <span class="separator">&rsaquo;</span>
+        <span class="page-title">{{ product.title }}</span>
+      {% elsif template contains 'collection' and collection.handle %}
+          {% if current_tags %}
+            <span class="separator">&rsaquo;</span>
+            {% capture url %}/collections/{{ collection.handle }}{% endcapture %}
+            {{ collection.title | link_to: url }}
+            <span class="separator">&rsaquo;</span>
+            <span class="page-title">{{ current_tags.first }}</span>
+          {% else %}
+            <span class="separator">&rsaquo;</span>
+            <span class="page-title">{{ collection.title }}</span>
+          {% endif %}
+      {% elsif template == 'article' %}
+          <span class="separator">&rsaquo;</span> 
+          {{ blog.title | link_to: blog.url }}
+          <span class="separator">&rsaquo;</span>
+          <span class="page-title">{{ article.title }}</span>
+      {% elsif template contains 'page' %}
+         <span class="separator">&rsaquo;</span>
+         <span class="page-title">{{ page.title }}</span>
+      {% else %}
+         <span class="separator">&rsaquo;</span>
+         <span class="page-title">{{ page_title }}</span>
+      {% endif %}
+    </p>
+  </div>
+</div>
+{% endunless %}

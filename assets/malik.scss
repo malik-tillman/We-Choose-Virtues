@@ -1,0 +1,195 @@
+/*
+
+<div class="swiper-container" id="{{ section_id }}">
+    <div class="swiper-wrapper">
+        {% for slide in slides %}
+            <div class="swiper-slide vertically--{{ slide.settings.vertical_alignment }} horizontally--{{ slide.settings.horizontal_alignment }} text--{{ slide.settings.text_alignment }}"
+                    id="{{ section_id }}-{{ forloop.index0 }}"
+            >
+              <style>
+                {{ section_id }} {{ section_id }}-{{ forloop.index0 }} {
+                  --color-overlay: {{ slide.settings.color_overlay }};
+                  --overlay-opacity: {{ slide.settings.overlay_opacity | times: 0.01 }};
+                  --color-text: {{ slide.settings.color_text }};
+                  --color-button: {{ slide.settings.color_button }};
+                  --color-button-hover: {{ slide.settings.color_button_hover }};
+                }
+              </style>
+
+              <div class="overlay"></div>
+
+              <div class="image--container">
+                  <img src="{{ slide.settings.image | img_url: 'master' }}" alt="{{ slide.settings.heading }}" class="desktop">
+                  <img src="{{ slide.settings.mobile_image | img_url: 'master' }}" alt="{{ slide.settings.heading }}" class="mobile">
+              </div>
+
+              <div class="content--container__wrapper">
+                <div class="content--container">
+                  <h2>{{ slide.settings.heading }}</h2>
+                  <p>{{ slide.settings.paragraph }}</p>
+                  <a href="{{ slide.settings.link }}" class="button">{{ slide.settings.button_label }}</a>
+                </div>
+              </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="swiper-pagination"></div>
+</div>
+
+ */
+
+.section-container__slideshow .swiper-container {
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-overlay);
+    opacity: var(--overlay-opacity);
+
+    z-index: 1;
+  }
+
+  .image--container {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+
+    img {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+
+      &.desktop {
+        display: block;
+      }
+
+      &.mobile {
+          display: none;
+      }
+
+      @media (max-width: 768px) {
+        &.desktop {
+          display: none;
+        }
+
+        &.mobile {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .content--container__wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    gap: 15px;
+    color: var(--color-text);
+    text-align: center;
+
+    .content--container {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+
+      max-width: 450px;
+      width: 100%;
+
+      h2 {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0;
+      }
+
+      .text {
+        font-size: 16px;
+        font-weight: 400;
+        margin: 0;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        background: var(--color-button);
+        color: var(--color-text-button);
+        text-decoration: none;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: var(--color-button-hover);
+        }
+      }
+    }
+  }
+
+  .swiper-slide{
+    &.text--left {
+      .content--container {
+        text-align: left;
+      }
+    }
+
+    &.text--right {
+      .content--container {
+          text-align: right;
+      }
+    }
+
+    &.text--center {
+      .content--container {
+          text-align: center;
+      }
+    }
+
+    &.horizontally--left {
+      .content--container__wrapper {
+        align-items: flex-start;
+      }
+    }
+
+    &.horizontally--right {
+      .content--container__wrapper {
+        align-items: flex-end;
+      }
+    }
+
+    &.horizontally--center {
+      .content--container__wrapper {
+        align-items: center;
+      }
+    }
+
+    &.vertically--top {
+      .content--container__wrapper {
+        justify-content: flex-start;
+      }
+    }
+
+    &.vertically--bottom {
+      .content--container__wrapper {
+        justify-content: flex-end;
+      }
+    }
+
+    &.vertically--center {
+      .content--container__wrapper {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+.swiper-container {
+  overflow: hidden;
+}

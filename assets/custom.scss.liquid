@@ -1,0 +1,654 @@
+/*
+Template Name:      Marketing 360 Shopify Design
+Version:            0.1.0
+Author:             Madwire Media SWAT Team
+Author URI:         http://www.marketing360.com/
+*/
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+/*!theme settings */
+
+$link-color:              {{ settings.link_color }};
+$button-color-primary:    {{ settings.button_color_primary }};
+$button-color-secondary:  {{ settings.button_color_secondary }};
+
+.text-color {
+  color: $link-color;
+}
+
+/* Buttons */
+
+.btn {
+  padding: 8px 14px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.input-group-btn .btn {
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.btn-hollow {
+  background: none;
+  border: 2px solid #26328c;
+  color: #26328c;
+
+  transition: background 0.3s ease;
+
+  /*
+  color: #fff;
+  */
+}
+.btn-hollow:hover,
+.btn-hollow:focus {
+  background: #26328c;
+
+  /*
+  background: #dfb907;
+  background: -moz-linear-gradient(top,  #dfb907 0%, #e6d369 100%);
+  background: -webkit-linear-gradient(top,  #dfb907 0%,#e6d369 100%);
+  background: linear-gradient(to bottom,  #dfb907 0%,#e6d369 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfb907', endColorstr='#e6d369',GradientType=0 );
+  color: #fff;
+  */
+}
+.btn-hollow.btn-white {
+    border-color: #fff;
+    color: #fff;
+}
+.btn-hollow.btn-white:hover,
+.btn-hollow.btn-white:focus {
+    background: #fff;
+    color: #333;
+}
+
+.btn.btn-lg {
+    padding: 14px 20px;
+    font-size: 22px;
+    text-transform: uppercase;
+}
+
+/* Extra Colored Buttons (home page ctas) */
+.btn.colored {
+  background-color: transparent;
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.3) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.3) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(0,0,0,0)', endColorstr='rgba(0,0,0,0.3)',GradientType=0 ); /* IE6-9 */
+}
+
+.btn.colored:hover {
+  background-color: transparent;
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='rgba(0,0,0,0.3)', endColorstr='rgba(0,0,0,0)',GradientType=0 ); /* IE6-9 */
+}
+
+.btn.colored.purple {background-color: #5C417F;}
+.btn.colored.pink {background-color: #BB2375;}
+.btn.colored.orange {background-color: #FE5A2F;}
+.btn.colored.green {background-color: #00AE56;}
+.btn.colored.teal {background-color: #00847B;}
+
+
+/*  Custom CSS  */
+
+header.site-header .header-top.hidden-xs.hidden-sm .container .row.row10 .col-sm-6.col-md-4.col-lg-4 p.text-center {
+  visibility: hidden;
+}
+
+.main-nav.clearfix {
+    float: right;
+    margin-top: 4%;
+}
+
+
+.section-padding.text-center p.cta-heading.bottom {
+    font-family: 'Satisfy', cursive;
+    font-weight: 200;
+    color: #26328c;
+  font-size: 28px;
+}
+
+.middle-section.text-center {
+  background: #f4f5f9;
+}
+
+.bottom-img.hidden-sm > img {
+    display: block;
+    margin: 0 auto;
+    position: relative;
+    /* top: -21px; */
+}
+
+.bottom-img.hidden-sm {
+    /* height: 234px; */
+}
+
+.newsletter-wrap form#mc-embedded-subscribe-form.form-inline.space-bottom10 input#mc-embedded-subscribe.btn.btn-primary {
+  background: #26328c;
+  width: 225px;
+}
+
+.newsletter-wrap form#mc-embedded-subscribe-form.form-inline.space-bottom10 input#mc-embedded-subscribe.btn.btn-primary:hover {
+  background: #091359;
+}
+
+.newsletter-wrap div.container div.row div.col-sm-5 {
+  text-align: center;
+}
+
+footer.site-footer .row.bottom30 .col-sm-3.text-center p {
+  color: #838383;
+  font-size: 14px;
+}
+
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.template-index .site-header {
+  margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Product List
+   ========================================================================== */
+
+ul.grid li .prod-inner {
+  border: 1px solid #eee;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.newsletter-wrap {
+ /* background: $link-color;*/
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6d369+0,dfb907+100 */
+background: #e6d369; /* Old browsers */
+background: -moz-linear-gradient(top,  #e6d369 0%, #dfb907 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top,  #e6d369 0%,#dfb907 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom,  #e6d369 0%,#dfb907 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6d369', endColorstr='#dfb907',GradientType=0 ); /* IE6-9 */
+
+  border: none;
+  color: #fff;
+}
+
+.footer-bottom {
+  padding: 15px 0 10px;
+  background: #121c63;
+}
+
+/* ==========================================================================
+   Homepage
+   ========================================================================== */
+
+.grey-bg{
+  background: #f4f5f9;
+}
+
+.template-index .site-main-content {
+  margin-bottom: 0;
+}
+
+.align-middle p.cta-heading {
+  font-family: 'Satisfy', cursive;
+    font-weight: 200;
+}
+
+
+.home-banner {
+  padding: 20px 0;
+  /* background: url('{{ 'header-bg.jpg' | asset_url }}') top center no-repeat; */
+  background: url('{{ 'bg-hero-new.jpg' | asset_url }}') top center no-repeat;
+  color: #555;
+  /* text-shadow: 1px 1px 1px rgba(0,0,0,0.15); */
+  font-weight: 600;
+}
+
+.home-banner .cta-heading {
+  /* font-size: 31px; */
+  font-size: 48px;
+  color: #26328c;
+  font-family: 'Satisfy', cursive;
+  font-weight: 200;
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.home-banner .cta-subheading {
+  font-size: 26px;
+}
+
+.home-banner .box {
+  background: #121c63;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 26px;
+  margin: 30px 10px 15px;
+}
+
+.home-banner .btn {
+  font-size: 18px;
+  max-width: 275px;
+  width: 100%;
+  margin-top: 10px;
+  padding: 12px;
+}
+
+.home-banner .popup-video {
+  position: absolute;
+  bottom: 8%;
+  left: 16%;
+  font-size: 130px;
+  color: rgba(0,132,123,0.55);
+}
+
+.home-banner .popup-video:hover {
+  color: rgba(0,132,123,0.8);
+}
+
+.cta-heading {
+  font-size: 28px;
+  color: #26328c;
+}
+.cta-subheading {
+  font-size: 16px;
+}
+
+.section-padding {
+  padding: 20px 0;
+}
+
+.cta-row {
+  padding: 20px 0;
+  background: url('{{ 'lookbook-bg.jpg' | asset_url }}') top center no-repeat;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.15);
+}
+
+/* ==========================================================================
+   New Kids Products collection template
+   ========================================================================== */
+.KidsHero {
+    background: url('{{ 'parenting-cards-nocta.jpg' | asset_url }}') top center no-repeat;
+    height: 472px;
+    width: 100%;
+    margin-top: 20px;
+}
+.YouthHero {
+    background: url('{{ 'herowidebanner-nocta.jpg' | asset_url }}') top center no-repeat;
+    height: 574px;
+    width: 100%;
+}
+
+.kids-header {
+  font-family: 'Satisfy', cursive;
+  font-size: 48px;
+  color: #27328c;
+  text-align: center;
+}
+
+.kids-subheader {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  color: #444444;
+  text-align: center;
+}
+
+.btn-kidshero {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  font-weight: 600;
+  background: #27328c;
+}
+
+.btn-kidshero:hover {
+  color: #27328c;
+  background: #fff;
+  border: 2px solid #27328c;
+}
+
+.YouthHero .kids-header {
+ margin-top: 200px;
+}
+.KidsHero .kids-header {
+ margin-top: 290px;
+}
+p.kids-caption {
+  font-family: 'Satisfy', cursive;
+    text-align: center;
+    color: #27328c;
+    font-weight: 600;
+}
+
+ul.kids {
+ text-align: center;
+}
+
+ul.kids li{
+ display: inline-block;
+ float: left;
+ margin: 0 25px;
+}
+
+hr.yellow-line {
+    border-top: 2px solid yellow;
+  width: 100%;
+}
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+/* Extra Small devices ONLY (tablets, 767px and DOWN) */
+@media (max-width: 767px) {
+
+  .home-banner {
+    background-size: cover;
+    padding: 40px 0;
+  }
+
+  .home-banner .cta-heading {
+    font-size: 46px;
+  }
+
+  .home-banner .cta-subheading {
+    font-size: 20Px;
+  }
+
+  .home-banner .box {
+    font-size: 20px;
+    margin: 20px 0 15px;
+  }
+
+  .home-banner .btn {
+    font-size: 18px;
+    max-width: 275px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+  }
+
+  .home-banner .popup-video {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    line-height: 1;
+  }
+
+  .home-banner .popup-video span {
+    font-size: 26px;
+    line-height: 1;
+    display: block;
+    font-family: 'satisfy';
+    font-weight: 200;
+}
+
+  .cta-row .btn {
+    display: block;
+    margin: 10px 0;
+  }
+
+.cta-row.text-center .container .row {
+    height: 440px;
+  }
+
+  /* 5 CTAS ROW */
+
+  .cta-boxes .col-sm-3 {
+    margin-bottom: 40px;
+  }
+
+}
+
+/* Small devices ONLY (desktops, 991px and DOWN) */
+@media (max-width: 991px) {
+
+}
+
+/* Extra Small devices (phones, 480px and UP) */
+@media (min-width: 480px) {
+
+}
+
+/* Small devices (tablets, 768px and UP) */
+@media (min-width: 768px) {
+
+  /* Base */
+  .btn-hollow {
+    padding: 8px 14px;
+    font-size: 16px;
+  }
+
+  /* Homepage */
+  .cta-heading {
+    font-size: 30px;
+    font-weight: 700;
+  }
+  .cta-subheading {
+    font-size: 16px;
+     padding: 0 25px;
+  }
+
+  .section-padding {
+    padding: 20px 0;
+  }
+
+  .cta-row {
+    padding: 0;
+  }
+
+  /* 5 CTAS ROW */
+
+  .cta-boxes .col-sm-3 {
+    width: 20%;
+  }
+
+  .cta-boxes .cta-subheading {
+    padding: 0;
+    font-size: 13px;
+    min-height: 95px;
+  }
+
+  /* Align Middle */
+
+  .align-wrap {
+    display: table;
+    width: 100%;
+    height: 480px;
+  }
+  .align-middle {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .home-banner,
+  .home-banner .align-wrap {
+    padding: 0;
+    height: 610px;
+  }
+
+  .home-banner .cta-heading {
+    font-size: 36px;
+  }
+
+  .home-banner .cta-subheading {
+    font-size: 18px;
+  }
+
+  .home-banner .box {
+    font-size: 20px;
+    margin: 30px 0 15px;
+  }
+
+  .home-banner .btn {
+    font-size: 18px;
+    max-width: 275px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+  }
+
+  .home-banner .popup-video {
+    bottom: 15%;
+    left: 9%;
+    font-size: 120px;
+  }
+
+  /* Footer */
+  .social-links {
+    text-align: right;
+  }
+  .site-footer .social-links a,
+  .site-footer .social-links a:hover {
+    color: #fff;
+  }
+
+  .site-footer h4 {
+    border-top: 2px solid $link-color;
+    padding-top: 10px;
+  }
+
+  .site-footer a {
+    color: #999;
+  }
+  .site-footer a:hover,
+  .site-footer a:focus {
+    color: #666;
+  }
+
+}
+
+/* Medium devices (desktops, 992px and UP) */
+@media (min-width: 992px) {
+
+  /* Header */
+  .header-top {
+    padding: 10px 0;
+    background: #121c63;
+    color: #fff;
+    font-size: 15px;
+  }
+  .header-top p {
+    margin-bottom: 0;
+  }
+  .header-top a {
+    color: #fff;
+  }
+
+  .site-header-nav {
+    margin-top: 5px;
+    border: none;
+  }
+  ul.main-nav>li>a {
+    color: #575757;
+  }
+  ul.main-nav>li>a:hover,
+  ul.main-nav>li>a:focus,
+  ul.main-nav>li.active>a {
+    color: $link-color;
+  }
+
+  /* Homepage */
+  .home-banner {
+    background-attachment: scroll;
+    font-size: 15px;
+  }
+
+  .home-banner .cta-heading {
+    font-size: 38px;
+  }
+
+  .home-banner .cta-subheading {
+    font-size: 22px;
+  }
+
+  .home-banner .box {
+    font-size: 24px;
+  }
+
+  .home-banner .btn {
+    font-size: 18px;
+  }
+
+  .home-banner .popup-video {
+    bottom: 11%;
+    left: 12%;
+  }
+
+  /* 5 CTAS ROW */
+
+  .cta-boxes .col-sm-3 {
+    width: 20%;
+  }
+
+  .cta-boxes .cta-subheading {
+    padding: 0;
+    font-size: 15px;
+    min-height: 65px;
+	}
+
+
+}
+
+/* Large devices (large desktops, 1200px and UP) */
+@media (min-width: 1200px) {
+
+  .site-header-nav {
+    margin-top: 10px;
+  }
+
+  .home-banner {
+    font-size: 16px;
+  }
+
+  .home-banner .cta-heading {
+    font-size: 48px;
+    color: #26328c;
+    font-family: 'Satisfy', cursive;
+    font-weight: 200;
+    line-height: 1;
+    margin-bottom: 0;
+  }
+
+  .home-banner .cta-subheading {
+    font-size: 26px;
+  }
+
+  .home-banner .box {
+    background: #121c63;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+    font-size: 26px;
+    margin: 30px 10px 15px;
+  }
+
+  .home-banner .btn {
+    font-size: 18px;
+    max-width: 275px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+  }
+
+  .home-banner .popup-video {
+    bottom: 8%;
+    left: 16%;
+    font-size: 130px;
+  }
+
+}

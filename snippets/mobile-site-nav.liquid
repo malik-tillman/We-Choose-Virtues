@@ -1,0 +1,80 @@
+<div class="mobile-nav-wrap hidden-md hidden-lg">
+  <a class="mobile-nav-close toggle-mobile-nav" href="#"><i class="fa fa-times"></i></a>
+  <nav role="navigation">
+    <h3 class="mobile-nav-heading">Categories</h3>
+    <ul class="mobile-nav">
+      {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' %}
+      <li>{{ collection.title | link_to: collection.url }}</li>
+      {% endunless %}
+      {% endfor %}
+    </ul>
+    {% comment %}
+    <h3 class="mobile-nav-heading">Brands</h3>
+    <ul class="mobile-nav">
+      {% for product_vendor in shop.vendors %}
+      <li>{{ product_vendor | link_to_vendor }}</li>
+      {% endfor %}
+    </ul>
+    {% endcomment %}
+    <h3 class="mobile-nav-heading">Pages</h3>
+    <ul class="mobile-nav">
+      {% for link in linklists.main-menu.links %}
+      {% assign has_sub_menu = false %}
+      {% assign has_sub_categories = false %}
+      {% assign parent_link_active = false %}
+      {% assign child_list_handle = link.title | handle %}
+      {% if linklists[child_list_handle] and linklists[child_list_handle].links.size > 0 %}
+      {% assign has_sub_menu = true %}
+      {% for l in linklists[child_list_handle].links %}
+      {% if handle != blank and handle == l.object.handle %}
+      {% assign parent_link_active = true %}
+      {% elsif page_title == l.title %}
+      {% assign parent_link_active = true %}
+      {% endif %}
+      {% endfor %}
+      {% elsif link.type == 'collection_link' and link.object.all_tags.size > 0 %}
+      {% assign has_sub_categories = true %}
+      {% endif %}
+      <li class="{% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} dropdown{% endif %}{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}">
+        <a href="{{ link.url }}">{{ link.title }}</a>
+        {% if has_sub_menu or has_sub_categories %}
+        <span class="dropdown-toggle toggle-mobile-dropdown"><i class="fa fa-plus"></i></span>
+        {% endif %}
+        {% if has_sub_menu or has_sub_categories %}
+        <ul class="children">
+          {% if has_sub_menu %}
+          {% for l in linklists[child_list_handle].links %}
+          <li class="{% if l.active %} active{% endif %}">
+            <a href="{{ l.url }}">{{ l.title }}</a>
+          </li>
+          {% endfor %}
+          {% elsif has_sub_categories %}
+          {% for tag in link.object.all_tags %}
+          <li class="{% if current_tags contains tag %} active{% endif %}">
+            <a href="{{ link.url }}/{{ tag | handle }}">{{ tag }}</a>
+          </li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+    <h3 class="mobile-nav-heading">Account</h3>
+    <ul class="mobile-nav">
+      {% if shop.customer_accounts_enabled %}
+      {% if customer %}
+      <li><a href="/account">Logged in as {{ customer.first_name }}</a></li>
+      <li>{{ 'Log out' | customer_logout_link }}</li>
+      {% else %}
+      <li>{{ 'Log in' | customer_login_link }}</li>
+      {% if shop.customer_accounts_optional %}
+      <li>{{ 'Create an account' | customer_register_link }}</li>
+      {% endif %}
+      {% endif %}
+      {% endif %}
+      <li><a href="/cart">View Cart</a></li>
+    </ul>
+  </nav>
+</div>

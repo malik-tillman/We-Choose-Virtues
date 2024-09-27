@@ -1,0 +1,85 @@
+{
+  "sections": {
+    "slideshow": {
+      "type": "slideshow",
+      "blocks": {
+        "image_mKJzQm": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Blank_2000_x_4000_copy.png",
+            "mobile_image": "shopify:\/\/shop_images\/Blank_2000_x_4000_copy.png",
+            "heading": "",
+            "paragraph": "",
+            "link": "shopify:\/\/collections\/resources-for-conventional-standards",
+            "button_label": "",
+            "vertical_alignment": "bottom",
+            "horizontal_alignment": "right",
+            "text_alignment": "center",
+            "color_overlay": "#000000",
+            "overlay_opacity": 0,
+            "color_text": "#ffffff",
+            "color_text_button": "#000000",
+            "color_button": "#ffc53b",
+            "color_button_hover": "#ffe7b0"
+          }
+        },
+        "image_HTzQiq": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Most_popular_seller.png",
+            "mobile_image": "shopify:\/\/shop_images\/Most_popular_seller.png",
+            "heading": "",
+            "paragraph": "",
+            "link": "shopify:\/\/collections\/family-and-homeschool",
+            "button_label": "",
+            "vertical_alignment": "bottom",
+            "horizontal_alignment": "right",
+            "text_alignment": "right",
+            "color_overlay": "rgba(0,0,0,0)",
+            "overlay_opacity": 0,
+            "color_text": "#ffffff",
+            "color_text_button": "#000000",
+            "color_button": "#ffc53b",
+            "color_button_hover": "#fbb91a"
+          }
+        },
+        "image_8CVXny": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/FB_cover_6.jpg",
+            "mobile_image": "shopify:\/\/shop_images\/FB_cover_6.jpg",
+            "heading": "",
+            "paragraph": "",
+            "link": "shopify:\/\/collections\/resources-for-faith-based-standards",
+            "button_label": "",
+            "vertical_alignment": "bottom",
+            "horizontal_alignment": "right",
+            "text_alignment": "right",
+            "color_overlay": "rgba(0,0,0,0)",
+            "overlay_opacity": 25,
+            "color_text": "#ffffff",
+            "color_text_button": "#ffffff",
+            "color_button": "#ffffff",
+            "color_button_hover": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "image_mKJzQm",
+        "image_HTzQiq",
+        "image_8CVXny"
+      ],
+      "settings": {
+      }
+    },
+    "legacy-sections": {
+      "type": "legacy-sections",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "slideshow",
+    "legacy-sections"
+  ]
+}

@@ -1,0 +1,142 @@
+<div class="container">
+  <h1 class="space-bottom20">Shopping Cart</h1>
+   
+  <div class="row">
+    <div class="col-md-10">
+      
+      {% if cart.item_count > 0 %}
+        
+      <form action="/cart" method="post">
+        <div class="row">
+          <div class="col-sm-6">
+            <p><a class="btn btn-primary btn-block-sm" href="/collections/all"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i> Keep Shopping</a></p>
+          </div><!--/.col-->
+          <div class="col-sm-6">
+            <p class="text-right"><button class="btn btn-secondary btn-block-sm" type="submit" name="checkout">Proceed To Checkout <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></button></p>
+          </div><!--/.col-->
+        </div><!--/.row-->
+        <div class="cart-wrap">
+          <div class="table-responsive">
+            <table class="table">
+              
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>&nbsp;</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total</th>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              
+              <tbody>
+                
+                {% for item in cart.items %}    
+                
+                {% comment %}
+                Determining the handle of the collection that was last seen for the 'continue shopping' link.
+                {% endcomment %}
+                
+                {% if forloop.first %}
+                {% assign collection_url = item.product.collections.first.url %}
+                {% if collection_url == '/collections/frontpage' or collection_url == '' %}{% assign collection_url = '/collections/all' %}{% endif %}
+                {% endif %}
+                
+                <tr>
+                  <td>
+                    <a href="{{ item.product.url | within: collections.all }}">
+                      <img src="{{ item | img_url: 'small' }}"  alt="{{ item.title | escape }}" />
+                    </a>
+                  </td>
+                  <td>
+                    <h2>
+                      <a href="{{ item.url }}">
+                        {{ item.title }}
+                      </a>
+                    </h2>
+                    {% comment %}
+                    Line Item Properties
+                    {% endcomment %}
+                    {% if item.properties.size > 0 %}
+                    <p>
+                      {% for p in item.properties %}
+                      {% unless p.last == blank %}
+                      {{ p.first }}:
+                      {% if p.last contains '/uploads/' %}
+                      <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                      {% else %}
+                      {{ p.last }}
+                      {% endif %}
+                      <br />
+                      {% endunless %}
+                      {% endfor %}
+                    </p>
+                    {% endif %}
+                    <h3>Brand: {{ item.vendor }}</h3>
+                  </td>
+                  <td>{{ item.price | money }}</td>
+                  <td>
+                    <input type="number" name="updates[]" id="updates_{{ item.id }}" value="{{ item.quantity }}" />
+                  </td>
+                  <td>{{ item.line_price | money }}</td>
+                  <td>
+                    <a href="/cart/change?line={{ forloop.index }}&quantity=0">Remove</a>
+                  </td>
+                </tr>
+                {% endfor %}
+                
+              </tbody>
+              
+            </table>
+          </div>
+          
+          {% comment %}
+          For the checkout and update buttons to work, they need to use
+          a name attribute set to 'checkout' and 'update', respectively. That's case-sensitive.
+          {% endcomment %}
+          
+          <h3 class="cart-subtotal text-right">Subtotal: <em>{{ cart.total_price | money }}</em></h3>
+          
+          <div class="row">
+            <div class="col-sm-6">
+              <p><button class="btn btn-primary btn-block-sm" type="submit" name="update"><i class="fa fa-refresh"></i> Update Cart</button></p>
+              <p><a class="btn btn-primary btn-block-sm" href="{{ collection_url }}"><i class="fa fa-chevron-left"></i><i class="fa fa-chevron-left"></i> Keep Shopping</a></p>
+            </div>
+            <div class="col-sm-6 text-right">
+              <p><button class="btn btn-secondary btn-block-sm" type="submit" name="checkout">Proceed To Checkout <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i></button></p>
+              {% comment %}Paypal and Google checkout buttons{% endcomment %}
+              {% if additional_checkout_buttons %}
+              <p class="additional-checkout-buttons">
+                {{ content_for_additional_checkout_buttons }}
+              </p>
+              {% endif %}
+              
+              {% comment %}
+              For the special instructions to be submitted with order,
+              they need to use a name attribute set to 'note'. That's case-sensitive.
+              {% endcomment %}
+              <div class="cart-instructions">
+                <p>Special instructions for seller</p>
+                <textarea name="note" class="form-control">{{ cart.note }}</textarea>
+              </div>
+            </div><!--/.col-->
+          </div><!--/.row-->
+            </div><!--/.cart-wrap-->
+        </form>
+        
+        {% else %}
+        
+        <div>
+          <h3>It appears that your cart is currently empty!</h3>
+          <h4>You can continue browsing <a href="/collections/all">here</a>.</h4>
+        </div>
+        
+        {% endif %}
+      
+    </div><!--/.col-->
+    <div class="col-md-2 hidden-xs">
+      {% include 'cart-features' %}
+    </div><!--/.col-->
+  </div><!--/.row-->
+</div><!--/.container-->
