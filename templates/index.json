@@ -108,6 +108,16 @@
         "review_mVXNB9"
       ],
       "settings": {
+        "heading1": "Character Coaching Tools for Kids age 3-9.",
+        "paragraph1": "Find the virtue product that is perfect for the kids you teach!",
+        "image1": "shopify://shop_images/cta-virtuekids.png",
+        "cta_text1": "Shop Now",
+        "cta_url1": "shopify://collections",
+        "heading2": "Character Coaching Tools for Youth age 10-16",
+        "paragraph2": "The Virtues your kids grew up on, grew up! A new look, new teaching methods, and (some) new catchphrases!",
+        "image2": "shopify://shop_images/cta-virtueyouth.png",
+        "cta_text2": "Shop Now",
+        "cta_url2": "shopify://collections",
         "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
         "about_cta_text": "Learn More",
         "about_cta_url": "shopify://pages/about-us",
@@ -154,7 +164,9 @@
     },
     "bottom_image_wr4DKf": {
       "type": "bottom-image",
-      "settings": {}
+      "settings": {
+        "image": "shopify://shop_images/lookbook-img_new.png"
+      }
     }
   },
   "order": [

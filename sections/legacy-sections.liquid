@@ -27,16 +27,22 @@
             <div class="col-sm-6">
                 <div class="align-wrap">
                     <div class="align-middle">
-                        <p class="cta-heading">Character Coaching Tools for Kids age 3-9.</p>
-                        <p class="cta-subheading">Find the virtue product that is perfect for the kids you teach!</p>
-                        <p><a class="btn btn-hollow" href="/collections/all-products-for-kids">Get It Now</a></p>
+                        <p class="cta-heading">{{ section.settings.heading1 }}</p>
+                        <p class="cta-subheading">{{ section.settings.paragraph1 }}</p>
+                        <p>
+                            <a class="btn btn-hollow" href="{{ section.settings.cta_url1 }}">
+                                {{ section.settings.cta_text1 }}
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="align-wrap">
                     <div class="align-middle">
-                        <p><img src="{{ 'cta-virtuekids.png' | asset_url }}" alt=""></p>
+                        <p>
+                            <img src="{{ section.settings.image1 | img_url: 'master' }}" alt="">
+                        </p>
                     </div>
                 </div>
             </div>
@@ -51,17 +57,24 @@
             <div class="col-sm-6">
                 <div class="align-wrap">
                     <div class="align-middle">
-                        <p><img src="{{ 'cta-virtueyouth.png' | asset_url }}" alt=""></p>
+                        <p>
+                            <img src="{{ section.settings.image2 | img_url: 'master' }}" alt="">
+                        </p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="align-wrap">
                     <div class="align-middle">
-                        <p class="cta-heading">Character Coaching Tools for Youth age 10-16</p>
-                        <p class="cta-subheading">The Virtues your kids grew up on, grew up! A new look, new teaching
-                            methods, and (some) new catchphrases!</p>
-                        <p><a class="btn btn-hollow" href="/collections/all-products-for-youth">Shop Now</a></p>
+                        <p class="cta-heading">{{ section.settings.heading2 }}</p>
+                        <p class="cta-subheading">
+                            {{ section.settings.paragraph2 }}
+                        </p>
+                        <p>
+                            <a class="btn btn-hollow" href="{{ section.settings.cta_url2 }}">
+                                {{ section.settings.cta_text2 }}
+                            </a>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -69,6 +82,7 @@
     </div><!--/.container-->
 </div>
 
+{% comment %} Hidden {% endcomment %}
 <div class="section-padding text-center grey-bg visually-hidden">
     <div class="container grey-bg">
         <div class="row">
@@ -183,6 +197,7 @@
         </div>
     </div>
 </div>
+{% comment %} Hidden {% endcomment %}
 
 <div class="section-padding text--center about-text grey-bg">
     <div class="container">
@@ -251,6 +266,64 @@
   "settings": [
     {
       "type": "header",
+      "content": "Text with Image #1"
+    },
+    {
+      "type": "text",
+      "id": "heading1",
+      "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "paragraph1",
+      "label": "Paragraph"
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "cta_text1",
+      "label": "CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url1",
+      "label": "CTA URL"
+    },
+    {
+      "type": "header",
+      "content": "Text with Image #2"
+    },
+    {
+      "type": "text",
+      "id": "heading2",
+      "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "paragraph2",
+      "label": "Paragraph"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "cta_text2",
+      "label": "CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url2",
+      "label": "CTA URL"
+    },
+    {
+      "type": "header",
       "content": "About Section"
     },
     {
@@ -274,8 +347,8 @@
       "label": "About CTA URL"
     },
     {
-        "type": "header",
-        "content": "Reviews Section"
+      "type": "header",
+      "content": "Reviews Section"
     },
     {
       "type": "text",

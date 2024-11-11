@@ -153,3 +153,125 @@ const slideshow = {
     }
   ]
 }
+
+const legacySection = {
+  "name": "Legacy Sections",
+  "class": "section-container__legacy",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Text with Image #1"
+    },
+    {
+      "type": "text",
+      "id": "heading1",
+      "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "paragraph1",
+      "label": "Paragraph"
+    },
+    {
+      "type": "image_picker",
+      "id": "image1",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "cta_text1",
+      "label": "CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url1",
+      "label": "CTA URL"
+    },
+    {
+      "type": "header",
+      "content": "Text with Image #2"
+    },
+    {
+      "type": "text",
+      "id": "heading2",
+      "label": "Heading"
+    },
+    {
+      "type": "inline_richtext",
+      "id": "paragraph2",
+      "label": "Paragraph"
+    },
+    {
+      "type": "image_picker",
+      "id": "image2",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "cta_text2",
+      "label": "CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "cta_url2",
+      "label": "CTA URL"
+    },
+    {
+      "type": "header",
+      "content": "About Section"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "About Section Paragraph"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_with_text_image",
+      "label": "About Section Image"
+    },
+    {
+      "type": "text",
+      "id": "about_cta_text",
+      "label": "About CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "about_cta_url",
+      "label": "About CTA URL"
+    },
+    {
+      "type": "header",
+      "content": "Reviews Section"
+    },
+    {
+      "type": "text",
+      "id": "reviews_cta_text",
+      "label": "Reviews CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "reviews_cta_url",
+      "label": "Reviews CTA URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "review",
+          "label": "Review"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Legacy Sections",
+      "name": "Legacy Sections"
+    }
+  ]
+}

@@ -388,7 +388,7 @@
 }
 
 .newsletter-wrap {
-  background: #7bc24f;
+  background: var(--newsletter-background-color, #7bc24f);
 
   .form-group, #mc-embedded-subscribe {
     margin-bottom: 10px;

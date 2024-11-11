@@ -1,11 +1,20 @@
-<div class="bottom-img hidden-sm hidden-xs grey-bg">
-  <img src="{{ 'lookbook-img_new.png' | asset_url }}">
-</div>
+{% if section.settings.image != blank %}
+  <div class="bottom-img hidden-sm hidden-xs grey-bg">
+    <img src="{{ section.settings.image | img_url: 'master' }}" alt="{{ section.settings.image.alt }}">
+  </div>
+{% endif %}
 
 {% schema %}
 {
   "name": "Legacy Bottom Image",
   "class": "section-container__bottom-image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
   "presets": [
     {
       "category": "Bottom Image",

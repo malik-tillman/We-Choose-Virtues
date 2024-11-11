@@ -47,6 +47,15 @@
         "type": "color",
         "id": "button_color_secondary",
         "label": "Secondary Button Color"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter"
+      },
+      {
+        "type": "color",
+        "id": "newsletter_background_color",
+        "label": "Background Color"
       }
     ]
   },
