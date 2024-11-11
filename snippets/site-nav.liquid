@@ -28,7 +28,7 @@
       {% assign has_sub_categories = true %}
     {% endif %}
     <li class="{% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} dropdown{% endif %}{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}">
-      <a href="{{ link.url }}">{{ link.title }}{% if has_sub_menu or has_sub_categories %} <i class="fa fa-angle-down"></i>{% endif %}</a> 
+      <a href="{{ link.url }}">{{ link.title }}{% if has_sub_menu or has_sub_categories %} <i class="fa fa-angle-down"></i>{% endif %}</a>
       {% if has_sub_menu or has_sub_categories %}
       <ul class="dropdown-menu">
         {% if has_sub_menu %}
@@ -48,5 +48,9 @@
       {% endif %}
     </li>
     {% endfor %}
+
+    <a class="btn btn-link btn-mobileCart" href="/cart">
+      <i class="fa fa-shopping-cart"></i> {{ cart.item_count }} ({{ cart.total_price | money }})
+    </a>
   </ul>
 </nav>

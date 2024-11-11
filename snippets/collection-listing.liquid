@@ -1,5 +1,5 @@
 {% comment %}
-  Be prepared to use this snippet to showcase collections specified in a link list as per this solution here: 
+  Be prepared to use this snippet to showcase collections specified in a link list as per this solution here:
   "Featuring collections using a Link List" http://docs.shopify.com/support/your-store/collections/featuring-collections-using-link-lists
   If this snippet is called with an argument, we'll assume it is the handle of a link list, and we will use that list.
   If this snippet is not called with an argument, we'll assume we are on the /collections page and will list all collections in the shop, all except the 'frontpage' and 'all' collections.
@@ -19,10 +19,10 @@
   {% assign using_link_list = true %}
 {% endif %}
 
-<h1>{% if using_link_list %}{{ linklists[collection-listing].title }}{% else %}Collections{% endif %}</h1>
+<h1 class="collection-grid-heading">{% if using_link_list %}{{ linklists[collection-listing].title }}{% else %}Collections{% endif %}</h1>
 
 {% if using_link_list %}
-<ul class="grid clearfix">
+<ul class="grid clearfix collections--list">
 {% for link in linklists[collection-listing].links %}
   {% if link.type == 'collection_link' %}
   {% assign collection = link.object %}
@@ -32,7 +32,7 @@
 </ul>
 {% else %}
 {% paginate collections by products_per_page %}
-<ul class="grid clearfix">
+<ul class="grid clearfix collections--list">
 {% for collection in collections %}
   {% include 'collection-grid-item' with products_per_row %}
 {% endfor %}

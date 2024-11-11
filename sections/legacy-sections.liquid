@@ -1,58 +1,24 @@
-<div class="home-banner text-center">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-5">
-                <div class="align-wrap">
-                    <div class="align-middle">
-                        <p class="cta-subheading bottom">PARENTING &amp; TEACHING</p>
-                        <p class="cta-heading">just got a lot simpler</p>
-                        <div class="box">
-                            <strong>ONE</strong> life transformed<br/>
-                            <strong>TEN</strong> minutes a day<br/>
-                            <strong>TWELVE</strong> virtues
-                        </div>
-                        <p>Thousands of Parents &amp; Teachers<br/>
-                            25 Years of Teaching Experience<br/>
-                            30 Nations and counting</p>
-                        <p><a class="btn btn-primary" href="/collections/">Get Started Today</a></p>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-sm-7">
-                <div class="align-wrap">
-                    <div class="align-middle">
+<div class="container legacy--sections  collection--list">
+    {% include 'collection-listing' %}
 
-                        <p><img src="{{ 'hero-photos-img.png' | asset_url }}" alt=""></p>
-                        <a class="popup-video text-center" href="https://vimeo.com/184131099"><i
-                                    class="fa fa-play-circle"></i><span class="visible-xs">Watch Our Video</span></a>
-
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6">
-                <div class="align-wrap">
-                    <div class="align-middle">
-                        <p class="cta-heading">Give your kids wings. Give them Virtues!</p>
-                        <p class='cta-head'>We Choose Virtues teaches a lifestyle of character using a simple language.
-                            Thousands of teachers, parents and grandparents are inspiring children with Virtues and
-                            watching them find success. You can too!<br/>
-                            <strong>We Choose Virtues… Simply Inspiring Character that Lasts.</strong>
-                        <p><a class="btn btn-primary" href="/collections/">Shop Latest Products</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-sm-6">
-                <div class="align-wrap">
-                    <div class="align-middle">
-                        <p><img src="{{ '' | asset_url }}" alt=""></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    {% comment %}
+    <!-- Alternatively, if not using a snippet, use the code below.
+    To use the code below, get rid of the above 'include', and get rid of the comment tags, and you're in business. -->
+    {% paginate collections by 6 %}
+      <h1>Collections</h1>
+      <ul class="grid clearfix">
+      {% for collection in collections %}
+        {% include 'collection-grid-item' with 'three-per-row' %}
+      {% endfor %}
+      </ul>
+      {% if paginate.pages > 1 %}
+      <div id="pagination">
+        {{ paginate | default_pagination }}
+      </div>
+      {% endif %}
+    {% endpaginate %}
+    {% endcomment %}
 </div>
 
 <div class="section-padding text-center grey-bg">
@@ -103,7 +69,7 @@
     </div><!--/.container-->
 </div>
 
-<div class="section-padding text-center grey-bg">
+<div class="section-padding text-center grey-bg visually-hidden">
     <div class="container grey-bg">
         <div class="row">
             <div class="col-sm-6">
@@ -128,7 +94,7 @@
 
 </div>
 
-<div class="section-padding text-center">
+<div class="section-padding text-center visually-hidden">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
@@ -153,7 +119,7 @@
 
 </div>
 
-<div class="section-padding text-center grey-bg">
+<div class="section-padding text-center grey-bg visually-hidden">
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
@@ -178,7 +144,7 @@
 
 </div>
 
-<div class="section-padding text-center cta-boxes grey-bg">
+<div class="section-padding text-center cta-boxes grey-bg visually-hidden">
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
@@ -218,94 +184,123 @@
     </div>
 </div>
 
-{% if settings.slide_1 != false or settings.slide_2 != false or settings.slide_3 != false or settings.slide_4 != false %}
-    <!-- Begin slider -->
-    <div class="flexslider">
-        <ul class="slides">
-            {% for i in (1..4) %}
-                {% capture show_slide %}slide_{{ i }}{% endcapture %}
-                {% capture image %}slideshow_{{ i }}.jpg{% endcapture %}
-                {% capture link %}slide_{{ i }}_link{% endcapture %}
-                {% capture alt %}slide_{{ i }}_alt{% endcapture %}
-                {% if settings[show_slide] %}
-                    <li>
-                        <a href="{{ settings[link] }}">
-                            <img src="{{ image | asset_url }}" alt="{{ settings[alt] | escape }}"/>
-                        </a>
-                    </li>
-                {% endif %}
-            {% endfor %}
-        </ul>
-        <div class="flex-controls"></div>
-    </div>
-    <!-- End slider -->
-{% endif %}
-
-<div class="container">
-
-    {% unless settings.homepage_collection == blank or collections[settings.homepage_collection].empty? %}
-        <h2>Featured Products</h2>
-
-        {% assign collection = collections[settings.homepage_collection] %}
-        <ul class="grid clearfix">
-            {% for product in collection.products %}
-                {% include 'product-grid-item' with 'three-per-row' %}
-            {% else %}
-                <li>
-                    <p>
-                        You have no products in your {{ collections[settings.homepage_collection].title }} collection.
-                        <a href="http://www.shopify.com/admin/collections">Add some.</a>
-                    <p>
-                </li>
-            {% endfor %}
-        </ul>
-    {% endunless %}
-
-    {% unless settings.homepage_page == blank or pages[settings.homepage_page].empty? %}
-        {% assign page = pages[settings.homepage_page] %}
-        <hr>
-        <div class="rte grid-margins">
-            {{ page.content }}
-        </div>
-    {% endunless %}
-
-</div>
-
-<div class="bottom-img hidden-sm hidden-xs grey-bg">
-    <img src="{{ 'lookbook-img_new.png' | asset_url }}">
-</div>
-
-<div class="cta-row text-center">
+<div class="section-padding text--center about-text grey-bg">
     <div class="container">
-
-        <div class="row">
-            <a class="popup-video text-center" href="https://www.youtube.com/watch?v=q0Ypv1hOAiQ">
-                <div class="col-sm-12">
-                    <div class="align-wrap">
-                        <div class="align-middle">
-
-
-                            <p class="cta-heading">We use <em class="text-color">100%</em> recycled wood <a
-                                        class="btn btn-hollow" href="#">Learn More</a></p>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <div class="col-sm-4">
-                <div class="align-wrap">
-                    <div class="align-middle">
-                        <p class="bottom"><img src="{{ 'cta-row-2.png' | asset_url }}" alt=""></p>
-                    </div>
-                </div>
-            </div>
+        <div class="image--container">
+            <img src="{{ section.settings.image_with_text_image | img_url: 'master' }}" alt="">
         </div>
+
+        <div class="rte">
+            {{ section.settings.paragraph }}
+        </div>
+
+        {% if section.settings.about_cta_text and section.settings.about_cta_url %}
+            <a href="{{ section.settings.about_cta_url }}" class="btn btn-hollow">{{ section.settings.about_cta_text }}</a>
+        {% endif %}
     </div>
 </div>
+
+{% if section.blocks %}
+    <div class="section-padding text--center reviews-slider" id="section-{{ section.id }}">
+        <div class="container">
+            <h2>Testimonials</h2>
+
+            <div class="swiper swiper-container">
+                <div class="swiper-wrapper">
+                    {% for block in section.blocks %}
+                        <div class="swiper-slide">
+                            <div class="review">
+                                {{ block.settings.review }}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+
+            {% if section.settings.reviews_cta_text and section.settings.reviews_cta_url %}
+                <div class="link--container">
+                    <a href="{{ section.settings.reviews_cta_url }}" class="btn btn-hollow">{{ section.settings.reviews_cta_text }}</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+      (() => {
+        let swiper = new Swiper('#section-{{ section.id }} .swiper', {
+          loop: true,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+          autoplay: {
+            delay: 5000,
+          }
+        });
+      })();
+    </script>
+{% endif %}
 
 {% schema %}
 {
   "name": "Legacy Sections",
   "class": "section-container__legacy",
+  "settings": [
+    {
+      "type": "header",
+      "content": "About Section"
+    },
+    {
+      "type": "richtext",
+      "id": "paragraph",
+      "label": "About Section Paragraph"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_with_text_image",
+      "label": "About Section Image"
+    },
+    {
+      "type": "text",
+      "id": "about_cta_text",
+      "label": "About CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "about_cta_url",
+      "label": "About CTA URL"
+    },
+    {
+        "type": "header",
+        "content": "Reviews Section"
+    },
+    {
+      "type": "text",
+      "id": "reviews_cta_text",
+      "label": "Reviews CTA Text"
+    },
+    {
+      "type": "url",
+      "id": "reviews_cta_url",
+      "label": "Reviews CTA URL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "review",
+          "label": "Review"
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "category": "Legacy Sections",

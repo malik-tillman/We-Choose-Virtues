@@ -1,7 +1,7 @@
 {% comment %}If no value is passed to the snippet, we will set the snippet variable to a sensible default.{% endcomment %}
 {% if collection-grid-item == '' %}{% assign collection-grid-item = 'three-per-row' %}{% endif %}
 
-<li class="{{ collection-grid-item }} centered">
+<li class="{{ collection-grid-item }} centered collection-grid-item">
 
   <div class="coll-image-wrap">
     <a href="{{ collection.url }}">
@@ -12,7 +12,7 @@
       {% endif %}
     </a>
   </div><!-- .coll-image-wrap -->
-  
+
   <div class="coll-caption">
       <a class="coll-title" href="{{ collection.url }}">
         {{ collection.title }}
@@ -21,7 +21,7 @@
         {{ collection.all_products_count }} {{ collection.all_products_count | pluralize:'item','items' }}
       </span>
   </div><!-- .coll-caption -->
-  
+
 </li>
 
 {% comment %}
@@ -31,7 +31,8 @@ Notice that we named it ( 'clear' ). We need to name it because there's another 
 element in this file ( we called that other one 'last' ). If you have more than one
 cycle element in a rendered view, you'll need to name all of them.
 The cycle element is documented here: http://docs.shopify.com/themes/liquid-basics/logic#cycle
-{% endcomment %}
+
+
 
 {% if collection-grid-item == 'six-per-row' %}
 {% cycle 'clear': '', '', '', '', '', '<div style="clear:both"></div>' %}
@@ -44,3 +45,5 @@ The cycle element is documented here: http://docs.shopify.com/themes/liquid-basi
 {% elsif collection-grid-item == 'two-per-row' %}
 {% cycle 'clear': '', '<div style="clear:both"></div>' %}
 {% endif %}
+
+{% endcomment %}

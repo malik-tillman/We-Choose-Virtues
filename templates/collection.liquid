@@ -23,7 +23,7 @@
     - page content
     - blog post
   {% endcomment %}
-  
+
   <div class="row">
     <div class="col-sm-8">
       <h1>{{ collection.title }}</h1>
@@ -48,11 +48,10 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row">
-    
     <div class="col-md-9 col-lg-10">
-      
+
       {% if collection.description.size > 0 %}
       <div class="rte clearfix">
         {{ collection.description }}
@@ -75,9 +74,9 @@
 
       {% endpaginate %}
     </div>
-    
+
     <aside class="sidebar col-md-3 col-lg-2 hidden-xs hidden-sm">
-      
+
       <div class="sidebar-panel sidebar-categories">
         <h4>Shop by Category</h4>
         <ul>
@@ -88,13 +87,13 @@
           {% endfor %}
         </ul>
       </div>
-      
+
       {% comment %}
       <div class="sidebar-panel sidebar-subcategories">
         {% comment %}
           Listing all tags within the current collection.
           Shopify uses product tags to manage subcategories inside collections.
-          See 'How do I create subcategories of products?' at 
+          See 'How do I create subcategories of products?' at
           http://bit.ly/1j1Dti4 for details.
         {% endcomment %}
 
@@ -113,12 +112,12 @@
             {{ tag | link_to_tag: tag }}
           </li>
           {% endif %}
-          {% endfor %}  
+          {% endfor %}
         </ul>
         {% endif %}
       </div>
       {% endcomment %}
-      
+
     </aside>
   </div>
 

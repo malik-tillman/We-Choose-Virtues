@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "slideshow": {
@@ -6,11 +15,11 @@
         "image_mKJzQm": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Blank_2000_x_4000_copy.png",
-            "mobile_image": "shopify:\/\/shop_images\/Blank_2000_x_4000_copy.png",
+            "image": "shopify://shop_images/Blank_2000_x_4000_copy.png",
+            "mobile_image": "shopify://shop_images/Blank_2000_x_4000_copy.png",
             "heading": "",
             "paragraph": "",
-            "link": "shopify:\/\/collections\/resources-for-conventional-standards",
+            "link": "shopify://collections/resources-for-conventional-standards",
             "button_label": "",
             "vertical_alignment": "bottom",
             "horizontal_alignment": "right",
@@ -26,11 +35,11 @@
         "image_HTzQiq": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/Most_popular_seller.png",
-            "mobile_image": "shopify:\/\/shop_images\/Most_popular_seller.png",
+            "image": "shopify://shop_images/Most_popular_seller.png",
+            "mobile_image": "shopify://shop_images/Most_popular_seller.png",
             "heading": "",
             "paragraph": "",
-            "link": "shopify:\/\/collections\/family-and-homeschool",
+            "link": "shopify://collections/family-and-homeschool",
             "button_label": "",
             "vertical_alignment": "bottom",
             "horizontal_alignment": "right",
@@ -46,11 +55,11 @@
         "image_8CVXny": {
           "type": "image",
           "settings": {
-            "image": "shopify:\/\/shop_images\/FB_cover_6.jpg",
-            "mobile_image": "shopify:\/\/shop_images\/FB_cover_6.jpg",
+            "image": "shopify://shop_images/FB_cover_6.jpg",
+            "mobile_image": "shopify://shop_images/FB_cover_6.jpg",
             "heading": "",
             "paragraph": "",
-            "link": "shopify:\/\/collections\/resources-for-faith-based-standards",
+            "link": "shopify://collections/resources-for-faith-based-standards",
             "button_label": "",
             "vertical_alignment": "bottom",
             "horizontal_alignment": "right",
@@ -69,17 +78,89 @@
         "image_HTzQiq",
         "image_8CVXny"
       ],
-      "settings": {
-      }
+      "settings": {}
     },
     "legacy-sections": {
       "type": "legacy-sections",
+      "blocks": {
+        "review_fTN3YX": {
+          "type": "review",
+          "settings": {
+            "review": "<p>\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\"</p><p>- John D.</p>"
+          }
+        },
+        "review_bVr7iH": {
+          "type": "review",
+          "settings": {
+            "review": "<p>\"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\"</p><p>- John D.</p>"
+          }
+        },
+        "review_mVXNB9": {
+          "type": "review",
+          "settings": {
+            "review": "<p>\"Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.\"</p><p>- John D.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "review_fTN3YX",
+        "review_bVr7iH",
+        "review_mVXNB9"
+      ],
       "settings": {
+        "paragraph": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+        "about_cta_text": "Learn More",
+        "about_cta_url": "shopify://pages/about-us",
+        "reviews_cta_text": "Read More",
+        "reviews_cta_url": "shopify://pages/virtue-reviews"
       }
+    },
+    "featured_products_yWNF3x": {
+      "type": "featured-products",
+      "blocks": {
+        "product_LW6AbA": {
+          "type": "product",
+          "settings": {
+            "product": "virtue-flash-cards-for-families",
+            "cta_text": "",
+            "badge": "new"
+          }
+        },
+        "product_Kgiwyq": {
+          "type": "product",
+          "settings": {
+            "product": "kids-virtue-poster",
+            "cta_text": "",
+            "badge": "sale"
+          }
+        },
+        "product_qLe7AR": {
+          "type": "product",
+          "settings": {
+            "product": "homeschool-kit",
+            "cta_text": "",
+            "badge": "best"
+          }
+        }
+      },
+      "block_order": [
+        "product_LW6AbA",
+        "product_Kgiwyq",
+        "product_qLe7AR"
+      ],
+      "settings": {
+        "heading": "Shop our featured products"
+      }
+    },
+    "bottom_image_wr4DKf": {
+      "type": "bottom-image",
+      "settings": {}
     }
   },
   "order": [
     "slideshow",
-    "legacy-sections"
+    "legacy-sections",
+    "featured_products_yWNF3x",
+    "bottom_image_wr4DKf"
   ]
 }

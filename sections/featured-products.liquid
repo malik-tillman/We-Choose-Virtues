@@ -1,0 +1,96 @@
+{% if section.blocks.size > 0 %}
+    <div class="text--center featured--products--container" id="section-{{ section.id }}">
+        <div class="container">
+            <h2>{{ section.settings.heading }}</h2>
+
+            <div class="featured--products">
+                {% for block in section.blocks %}
+                    {% assign product = block.settings.product %}
+                    {% assign badge = block.settings.badge %}
+                    {% assign cta_text = block.settings.cta_text | default: 'View Product' %}
+
+                    {% if product.title == blank %}
+                        {% continue %}
+                    {% endif %}
+
+                    <div class="featured--product">
+                        <div class="featured--product--image">
+                            <a href="{{ product.url }}">
+                                <img src="{{ product.images[0] | img_url: 'master' }}" alt="{{ product.title }}">
+                            </a>
+                            {% if badge != 'none' %}
+                                <span class="badge badge--{{ badge }}">{{ badge }}</span>
+                            {% endif %}
+                        </div>
+                        <div class="featured--product--info">
+                            <h3>{{ product.title }}</h3>
+                            <a href="{{ product.url }}" class="btn btn-hollow">{{ cta_text }}</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "class": "section-container__legacy",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "CTA Text"
+        },
+        {
+          "type": "select",
+          "id": "badge",
+          "label": "Badge",
+          "options": [
+            {
+                "value": "new",
+                "label": "New"
+            },
+            {
+                "value": "sale",
+                "label": "Sale"
+            },
+            {
+              "value": "best",
+              "label": "Best"
+            },
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ],
+          "default": "none"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "category": "Products",
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %}

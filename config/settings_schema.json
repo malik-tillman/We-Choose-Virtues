@@ -264,11 +264,9 @@
         "label": "Use Custom Logo?"
       },
       {
-        "type": "image",
-        "id": "logo.png",
-        "label": "Custom Logo",
-        "max-width": 1200,
-        "max-height": 1200
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Custom Logo"
       },
       {
         "type": "paragraph",

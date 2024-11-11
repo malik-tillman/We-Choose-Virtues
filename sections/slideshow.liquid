@@ -5,9 +5,14 @@
 <div class="swiper-container" id="{{ section_id }}">
     <div class="swiper-wrapper">
         {% for slide in slides %}
-            <div class="swiper-slide vertically--{{ slide.settings.vertical_alignment }} horizontally--{{ slide.settings.horizontal_alignment }} text--{{ slide.settings.text_alignment }}"
-                    id="{{ section_id }}-{{ forloop.index0 }}"
-            >
+            {% if slide.settings.button_label == blank and slide.settings.link != blank  %}
+                <a href="{{ slide.settings.link }}" class="swiper-slide vertically--{{ slide.settings.vertical_alignment }} horizontally--{{ slide.settings.horizontal_alignment }} text--{{ slide.settings.text_alignment }}" id="{{ section_id }}-{{ forloop.index0 }}">
+
+            {% else %}
+                <a class="swiper-slide vertically--{{ slide.settings.vertical_alignment }} horizontally--{{ slide.settings.horizontal_alignment }} text--{{ slide.settings.text_alignment }}" id="{{ section_id }}-{{ forloop.index0 }}">
+
+            {% endif %}
+
               <style>
                 #{{ section_id }} #{{ section_id }}-{{ forloop.index0 }} {
                   --color-overlay: {{ slide.settings.color_overlay }};
@@ -40,27 +45,47 @@
                   {% endif %}
 
                   {% if slide.settings.button_label != blank %}
-                    <a href="{{ slide.settings.link }}" class="button btn">{{ slide.settings.button_label }}</a>
+                    <span href="{{ slide.settings.link }}" class="button btn">{{ slide.settings.button_label }}</span>
                   {% endif %}
                 </div>
 
               </div>
-            </div>
+
+            {% if slide.settings.button_label == blank and slide.settings.link != blank  %}
+                </a>
+
+            {% else %}
+                </div>
+            {% endif %}
         {% endfor %}
     </div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
     <div class="swiper-pagination"></div>
 </div>
 
 <script>
-  var swiper = new Swiper('#{{ section_id }}', {
-    loop: true,
-    slidesPerView: 1,
-    autoHeight: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true
-    }
-  });
+  (() => {
+    let swiper = new Swiper('#{{ section_id }}', {
+      loop: true,
+      slidesPerView: 1,
+      autoHeight: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      autoplay: {
+        delay: 10000,
+        pauseOnMouseEnter: true
+      }
+    });
+  })();
 </script>
 
 {% schema %}

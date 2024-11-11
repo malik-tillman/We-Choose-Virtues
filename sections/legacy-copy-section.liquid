@@ -1,0 +1,54 @@
+<div class="container">
+
+  {% unless settings.homepage_collection == blank or collections[settings.homepage_collection].empty? %}
+    <h2>Featured Products</h2>
+
+    {% assign collection = collections[settings.homepage_collection] %}
+    <ul class="grid clearfix">
+      {% for product in collection.products %}
+        {% include 'product-grid-item' with 'three-per-row' %}
+      {% else %}
+        <li>
+          <p>
+            You have no products in your {{ collections[settings.homepage_collection].title }} collection.
+            <a href="http://www.shopify.com/admin/collections">Add some.</a>
+          <p>
+        </li>
+      {% endfor %}
+    </ul>
+  {% endunless %}
+
+  {% unless settings.homepage_page == blank or pages[settings.homepage_page].empty? %}
+    {% assign page = pages[settings.homepage_page] %}
+    <hr>
+    <div class="rte grid-margins">
+      {{ page.content }}
+    </div>
+  {% endunless %}
+
+</div>
+
+{% schema %}
+{
+  "name": "Legacy Copy Section",
+  "class": "section-container__legacy-copy",
+  "settings": [
+    {
+      "type": "collection",
+      "id": "homepage_collection",
+      "label": "Homepage Collection"
+    },
+    {
+      "type": "page",
+      "id": "homepage_page",
+      "label": "Homepage Page"
+    }
+  ],
+  "presets": [
+    {
+      "category": "Legacy Copy Section",
+      "name": "Legacy Copy Section"
+    }
+  ]
+}
+{% endschema %}
